@@ -1,0 +1,497 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Header Files\Screen Include">
+      <UniqueIdentifier>{b5f559a1-742d-4857-8ffe-f7a88479a496}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Screen Source">
+      <UniqueIdentifier>{4bb0cd0e-3a70-4b53-bea5-8665e7f3c0d4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\GameObject Include">
+      <UniqueIdentifier>{b15a926f-079a-4f49-97d1-faa7a30a0b58}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\GameObject Source">
+      <UniqueIdentifier>{5469768a-fc06-4b82-82ae-8ca1d77a2b16}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\GameObject Include\Fish Include">
+      <UniqueIdentifier>{48182b2f-9c8b-4802-b49a-6c17a5bf7b03}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\GameObject Source\Fish Source">
+      <UniqueIdentifier>{955cde91-a4d3-45c9-a575-950a617fce61}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Widgets Include">
+      <UniqueIdentifier>{874c3020-c505-433e-990d-3a2778affa72}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Widgets Source">
+      <UniqueIdentifier>{fe3e0806-a520-495a-8465-18422073a383}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Widgets Include\Dialog Include">
+      <UniqueIdentifier>{5806b62f-8957-4bec-aae7-dc0aadd4219e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Widgets Source\Dialog Source">
+      <UniqueIdentifier>{6f3ea085-4678-4de0-b98f-f6380efe3be4}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Window.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Res.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="HelpScreen.cpp">
+      <Filter>Source Files\Screen Source</Filter>
+    </ClCompile>
+    <ClCompile Include="StoreScreen.cpp">
+      <Filter>Source Files\Screen Source</Filter>
+    </ClCompile>
+    <ClCompile Include="TitleScreen.cpp">
+      <Filter>Source Files\Screen Source</Filter>
+    </ClCompile>
+    <ClCompile Include="WinFishApp.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Board.cpp">
+      <Filter>Source Files\Screen Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Bilaterus.cpp">
+      <Filter>Source Files\GameObject Source</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject.cpp">
+      <Filter>Source Files\GameObject Source</Filter>
+    </ClCompile>
+    <ClCompile Include="BilaterusHead.cpp">
+      <Filter>Source Files\GameObject Source</Filter>
+    </ClCompile>
+    <ClCompile Include="BilaterusBone.cpp">
+      <Filter>Source Files\GameObject Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Fish.cpp">
+      <Filter>Source Files\GameObject Source\Fish Source</Filter>
+    </ClCompile>
+    <ClCompile Include="DeadAlien.cpp">
+      <Filter>Source Files\GameObject Source</Filter>
+    </ClCompile>
+    <ClCompile Include="DeadFish.cpp">
+      <Filter>Source Files\GameObject Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Oscar.cpp">
+      <Filter>Source Files\GameObject Source\Fish Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Food.cpp">
+      <Filter>Source Files\GameObject Source</Filter>
+    </ClCompile>
+    <ClCompile Include="FishTypePet.cpp">
+      <Filter>Source Files\GameObject Source\Fish Source</Filter>
+    </ClCompile>
+    <ClCompile Include="OtherTypePet.cpp">
+      <Filter>Source Files\GameObject Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Alien.cpp">
+      <Filter>Source Files\GameObject Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Breeder.cpp">
+      <Filter>Source Files\GameObject Source\Fish Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Grubber.cpp">
+      <Filter>Source Files\GameObject Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Larva.cpp">
+      <Filter>Source Files\GameObject Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Gekko.cpp">
+      <Filter>Source Files\GameObject Source\Fish Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Penta.cpp">
+      <Filter>Source Files\GameObject Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Ultra.cpp">
+      <Filter>Source Files\GameObject Source\Fish Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Shot.cpp">
+      <Filter>Source Files\GameObject Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Shadow.cpp">
+      <Filter>Source Files\GameObject Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Coin.cpp">
+      <Filter>Source Files\GameObject Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Missle.cpp">
+      <Filter>Source Files\GameObject Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Warp.cpp">
+      <Filter>Source Files\GameObject Source</Filter>
+    </ClCompile>
+    <ClCompile Include="BallFish.cpp">
+      <Filter>Source Files\GameObject Source\Fish Source</Filter>
+    </ClCompile>
+    <ClCompile Include="BiFish.cpp">
+      <Filter>Source Files\GameObject Source\Fish Source</Filter>
+    </ClCompile>
+    <ClCompile Include="SylvesterFish.cpp">
+      <Filter>Source Files\GameObject Source\Fish Source</Filter>
+    </ClCompile>
+    <ClCompile Include="DataSync.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FishSongMgr.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="BubbleMgr.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ProfileMgr.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SexyApp.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="InternetManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="BetaSupport.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="HighScoreMgr.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="WorkerThread.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="WinFishAppCommon.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="BonusScreen.cpp">
+      <Filter>Source Files\Screen Source</Filter>
+    </ClCompile>
+    <ClCompile Include="GameSelector.cpp">
+      <Filter>Source Files\Screen Source</Filter>
+    </ClCompile>
+    <ClCompile Include="HatchScreen.cpp">
+      <Filter>Source Files\Screen Source</Filter>
+    </ClCompile>
+    <ClCompile Include="HighScoreScreen.cpp">
+      <Filter>Source Files\Screen Source</Filter>
+    </ClCompile>
+    <ClCompile Include="InterludeScreen.cpp">
+      <Filter>Source Files\Screen Source</Filter>
+    </ClCompile>
+    <ClCompile Include="PetsScreen.cpp">
+      <Filter>Source Files\Screen Source</Filter>
+    </ClCompile>
+    <ClCompile Include="SimFishScreen.cpp">
+      <Filter>Source Files\Screen Source</Filter>
+    </ClCompile>
+    <ClCompile Include="SimSetupScreen.cpp">
+      <Filter>Source Files\Screen Source</Filter>
+    </ClCompile>
+    <ClCompile Include="StoryScreen.cpp">
+      <Filter>Source Files\Screen Source</Filter>
+    </ClCompile>
+    <ClCompile Include="TankScreen.cpp">
+      <Filter>Source Files\Screen Source</Filter>
+    </ClCompile>
+    <ClCompile Include="ContinueDialog.cpp">
+      <Filter>Source Files\Widgets Source\Dialog Source</Filter>
+    </ClCompile>
+    <ClCompile Include="MoneyDialog.cpp">
+      <Filter>Source Files\Widgets Source\Dialog Source</Filter>
+    </ClCompile>
+    <ClCompile Include="NewUserDialog.cpp">
+      <Filter>Source Files\Widgets Source\Dialog Source</Filter>
+    </ClCompile>
+    <ClCompile Include="OptionsDialog.cpp">
+      <Filter>Source Files\Widgets Source\Dialog Source</Filter>
+    </ClCompile>
+    <ClCompile Include="UserDialog.cpp">
+      <Filter>Source Files\Widgets Source\Dialog Source</Filter>
+    </ClCompile>
+    <ClCompile Include="StarField.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="VirtualDialog.cpp">
+      <Filter>Source Files\Widgets Source\Dialog Source</Filter>
+    </ClCompile>
+    <ClCompile Include="UpdateCheckDialog.cpp">
+      <Filter>Source Files\Widgets Source\Dialog Source</Filter>
+    </ClCompile>
+    <ClCompile Include="MenuButtonWidget.cpp">
+      <Filter>Source Files\Widgets Source</Filter>
+    </ClCompile>
+    <ClCompile Include="MessageWidget.cpp">
+      <Filter>Source Files\Widgets Source</Filter>
+    </ClCompile>
+    <ClCompile Include="MyLabelWidget.cpp">
+      <Filter>Source Files\Widgets Source</Filter>
+    </ClCompile>
+    <ClCompile Include="ToolTipWidget.cpp">
+      <Filter>Source Files\Widgets Source</Filter>
+    </ClCompile>
+    <ClCompile Include="PetDialog.cpp">
+      <Filter>Source Files\Widgets Source\Dialog Source</Filter>
+    </ClCompile>
+    <ClCompile Include="BoxingGlove.cpp">
+      <Filter>Source Files\GameObject Source</Filter>
+    </ClCompile>
+    <ClCompile Include="PetButtonWidget.cpp">
+      <Filter>Source Files\Widgets Source</Filter>
+    </ClCompile>
+    <ClCompile Include="ScreenSaverDialog.cpp">
+      <Filter>Source Files\Widgets Source\Dialog Source</Filter>
+    </ClCompile>
+    <ClCompile Include="StoreButtonWidget.cpp">
+      <Filter>Source Files\Widgets Source</Filter>
+    </ClCompile>
+    <ClCompile Include="FishNamingDialog.cpp">
+      <Filter>Source Files\Widgets Source\Dialog Source</Filter>
+    </ClCompile>
+    <ClCompile Include="FishButtonWidget.cpp">
+      <Filter>Source Files\Widgets Source</Filter>
+    </ClCompile>
+    <ClCompile Include="FoodDialog.cpp">
+      <Filter>Source Files\Widgets Source\Dialog Source</Filter>
+    </ClCompile>
+    <ClCompile Include="RegisterDialog.cpp">
+      <Filter>Source Files\Widgets Source\Dialog Source</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Res.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="StoreScreen.h">
+      <Filter>Header Files\Screen Include</Filter>
+    </ClInclude>
+    <ClInclude Include="TitleScreen.h">
+      <Filter>Header Files\Screen Include</Filter>
+    </ClInclude>
+    <ClInclude Include="HelpScreen.h">
+      <Filter>Header Files\Screen Include</Filter>
+    </ClInclude>
+    <ClInclude Include="WinFishApp.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Board.h">
+      <Filter>Header Files\Screen Include</Filter>
+    </ClInclude>
+    <ClInclude Include="Bilaterus.h">
+      <Filter>Header Files\GameObject Include</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject.h">
+      <Filter>Header Files\GameObject Include</Filter>
+    </ClInclude>
+    <ClInclude Include="BilaterusHead.h">
+      <Filter>Header Files\GameObject Include</Filter>
+    </ClInclude>
+    <ClInclude Include="BilaterusBone.h">
+      <Filter>Header Files\GameObject Include</Filter>
+    </ClInclude>
+    <ClInclude Include="Fish.h">
+      <Filter>Header Files\GameObject Include\Fish Include</Filter>
+    </ClInclude>
+    <ClInclude Include="DeadAlien.h">
+      <Filter>Header Files\GameObject Include</Filter>
+    </ClInclude>
+    <ClInclude Include="DeadFish.h">
+      <Filter>Header Files\GameObject Include</Filter>
+    </ClInclude>
+    <ClInclude Include="Oscar.h">
+      <Filter>Header Files\GameObject Include\Fish Include</Filter>
+    </ClInclude>
+    <ClInclude Include="Food.h">
+      <Filter>Header Files\GameObject Include</Filter>
+    </ClInclude>
+    <ClInclude Include="FishTypePet.h">
+      <Filter>Header Files\GameObject Include\Fish Include</Filter>
+    </ClInclude>
+    <ClInclude Include="OtherTypePet.h">
+      <Filter>Header Files\GameObject Include</Filter>
+    </ClInclude>
+    <ClInclude Include="Alien.h">
+      <Filter>Header Files\GameObject Include</Filter>
+    </ClInclude>
+    <ClInclude Include="Breeder.h">
+      <Filter>Header Files\GameObject Include\Fish Include</Filter>
+    </ClInclude>
+    <ClInclude Include="Grubber.h">
+      <Filter>Header Files\GameObject Include</Filter>
+    </ClInclude>
+    <ClInclude Include="Larva.h">
+      <Filter>Header Files\GameObject Include</Filter>
+    </ClInclude>
+    <ClInclude Include="Gekko.h">
+      <Filter>Header Files\GameObject Include\Fish Include</Filter>
+    </ClInclude>
+    <ClInclude Include="Penta.h">
+      <Filter>Header Files\GameObject Include</Filter>
+    </ClInclude>
+    <ClInclude Include="Ultra.h">
+      <Filter>Header Files\GameObject Include\Fish Include</Filter>
+    </ClInclude>
+    <ClInclude Include="Shot.h">
+      <Filter>Header Files\GameObject Include</Filter>
+    </ClInclude>
+    <ClInclude Include="Shadow.h">
+      <Filter>Header Files\GameObject Include</Filter>
+    </ClInclude>
+    <ClInclude Include="Coin.h">
+      <Filter>Header Files\GameObject Include</Filter>
+    </ClInclude>
+    <ClInclude Include="Missle.h">
+      <Filter>Header Files\GameObject Include</Filter>
+    </ClInclude>
+    <ClInclude Include="Warp.h">
+      <Filter>Header Files\GameObject Include</Filter>
+    </ClInclude>
+    <ClInclude Include="BallFish.h">
+      <Filter>Header Files\GameObject Include\Fish Include</Filter>
+    </ClInclude>
+    <ClInclude Include="BiFish.h">
+      <Filter>Header Files\GameObject Include\Fish Include</Filter>
+    </ClInclude>
+    <ClInclude Include="SylvesterFish.h">
+      <Filter>Header Files\GameObject Include\Fish Include</Filter>
+    </ClInclude>
+    <ClInclude Include="DataSync.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FishSongMgr.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BubbleMgr.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ProfileMgr.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SexyApp.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="InternetManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BetaSupport.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="HighScoreMgr.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="WorkerThread.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="WinFishAppCommon.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BonusScreen.h">
+      <Filter>Header Files\Screen Include</Filter>
+    </ClInclude>
+    <ClInclude Include="ContinueDialog.h">
+      <Filter>Header Files\Widgets Include\Dialog Include</Filter>
+    </ClInclude>
+    <ClInclude Include="GameSelector.h">
+      <Filter>Header Files\Screen Include</Filter>
+    </ClInclude>
+    <ClInclude Include="HatchScreen.h">
+      <Filter>Header Files\Screen Include</Filter>
+    </ClInclude>
+    <ClInclude Include="HighScoreScreen.h">
+      <Filter>Header Files\Screen Include</Filter>
+    </ClInclude>
+    <ClInclude Include="InterludeScreen.h">
+      <Filter>Header Files\Screen Include</Filter>
+    </ClInclude>
+    <ClInclude Include="TankScreen.h">
+      <Filter>Header Files\Screen Include</Filter>
+    </ClInclude>
+    <ClInclude Include="StoryScreen.h">
+      <Filter>Header Files\Screen Include</Filter>
+    </ClInclude>
+    <ClInclude Include="SimSetupScreen.h">
+      <Filter>Header Files\Screen Include</Filter>
+    </ClInclude>
+    <ClInclude Include="SimFishScreen.h">
+      <Filter>Header Files\Screen Include</Filter>
+    </ClInclude>
+    <ClInclude Include="PetsScreen.h">
+      <Filter>Header Files\Screen Include</Filter>
+    </ClInclude>
+    <ClInclude Include="MoneyDialog.h">
+      <Filter>Header Files\Widgets Include\Dialog Include</Filter>
+    </ClInclude>
+    <ClInclude Include="NewUserDialog.h">
+      <Filter>Header Files\Widgets Include\Dialog Include</Filter>
+    </ClInclude>
+    <ClInclude Include="OptionsDialog.h">
+      <Filter>Header Files\Widgets Include\Dialog Include</Filter>
+    </ClInclude>
+    <ClInclude Include="UserDialog.h">
+      <Filter>Header Files\Widgets Include\Dialog Include</Filter>
+    </ClInclude>
+    <ClInclude Include="StarField.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="UpdateCheckDialog.h">
+      <Filter>Header Files\Widgets Include\Dialog Include</Filter>
+    </ClInclude>
+    <ClInclude Include="VirtualDialog.h">
+      <Filter>Header Files\Widgets Include\Dialog Include</Filter>
+    </ClInclude>
+    <ClInclude Include="ToolTipWidget.h">
+      <Filter>Header Files\Widgets Include</Filter>
+    </ClInclude>
+    <ClInclude Include="MyLabelWidget.h">
+      <Filter>Header Files\Widgets Include</Filter>
+    </ClInclude>
+    <ClInclude Include="MessageWidget.h">
+      <Filter>Header Files\Widgets Include</Filter>
+    </ClInclude>
+    <ClInclude Include="MenuButtonWidget.h">
+      <Filter>Header Files\Widgets Include</Filter>
+    </ClInclude>
+    <ClInclude Include="PetDialog.h">
+      <Filter>Header Files\Widgets Include\Dialog Include</Filter>
+    </ClInclude>
+    <ClInclude Include="BoxingGlove.h">
+      <Filter>Header Files\GameObject Include</Filter>
+    </ClInclude>
+    <ClInclude Include="PetButtonWidget.h">
+      <Filter>Header Files\Widgets Include</Filter>
+    </ClInclude>
+    <ClInclude Include="ScreenSaverDialog.h">
+      <Filter>Header Files\Widgets Include\Dialog Include</Filter>
+    </ClInclude>
+    <ClInclude Include="StoreButtonWidget.h">
+      <Filter>Header Files\Widgets Include</Filter>
+    </ClInclude>
+    <ClInclude Include="FishNamingDialog.h">
+      <Filter>Header Files\Widgets Include\Dialog Include</Filter>
+    </ClInclude>
+    <ClInclude Include="FishButtonWidget.h">
+      <Filter>Header Files\Widgets Include</Filter>
+    </ClInclude>
+    <ClInclude Include="FoodDialog.h">
+      <Filter>Header Files\Widgets Include\Dialog Include</Filter>
+    </ClInclude>
+    <ClInclude Include="RegisterDialog.h">
+      <Filter>Header Files\Widgets Include\Dialog Include</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Insaniquarium.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>

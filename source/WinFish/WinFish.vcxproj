@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <ProjectGuid>{F40BA8E8-71ED-4517-ABA1-19898A06B531}</ProjectGuid>
+    <RootNamespace>TestProject</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>WinFish</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+    <VCToolsVersion>14.39.33519</VCToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+    <VCToolsVersion>14.29.30133</VCToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <IncludePath>$(SolutionDir)source;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
+    <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(Platform)\$(Configuration)\</IntDir>
+    <TargetName>Insaniquarium</TargetName>
+    <LibraryPath>$(SolutionDir)source\SexyAppFramework\DebugVS2005;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>false</ConformanceMode>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <AdditionalIncludeDirectories>..\source;</AdditionalIncludeDirectories>
+      <PrecompiledHeaderFile />
+      <PrecompiledHeaderOutputFile />
+      <AdditionalOptions>/wd4996 %(AdditionalOptions)</AdditionalOptions>
+      <LanguageStandard>stdcpp14</LanguageStandard>
+      <StringPooling>true</StringPooling>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>winmm.lib;wsock32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;libcmtd.lib;SexyAppFramework.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OptimizeReferences>false</OptimizeReferences>
+      <OutputFile>$(OutDir)Insaniquarium.exe</OutputFile>
+    </Link>
+    <PostBuildEvent>
+      <Command>copy "$(SolutionDir)bass.dll" "$(TargetDir)"
+xcopy "$(SolutionDir)images" "$(TargetDir)images\" /E /I /Y
+xcopy "$(SolutionDir)music" "$(TargetDir)music\" /E /I /Y
+xcopy "$(SolutionDir)sounds" "$(TargetDir)sounds\" /E /I /Y
+xcopy "$(SolutionDir)properties" "$(TargetDir)properties\" /E /I /Y
+xcopy "$(SolutionDir)data" "$(TargetDir)data\" /E /I /Y
+xcopy "$(SolutionDir)fishsongs" "$(TargetDir)fishsongs\" /E /I /Y</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>C:\Users\Administrator\OneDrive\Desktop\osframework\source;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="Alien.cpp" />
+    <ClCompile Include="BallFish.cpp" />
+    <ClCompile Include="BetaSupport.cpp" />
+    <ClCompile Include="BiFish.cpp" />
+    <ClCompile Include="Bilaterus.cpp" />
+    <ClCompile Include="BilaterusBone.cpp" />
+    <ClCompile Include="BilaterusHead.cpp" />
+    <ClCompile Include="Board.cpp" />
+    <ClCompile Include="BonusScreen.cpp" />
+    <ClCompile Include="BoxingGlove.cpp" />
+    <ClCompile Include="Breeder.cpp" />
+    <ClCompile Include="BubbleMgr.cpp" />
+    <ClCompile Include="Coin.cpp" />
+    <ClCompile Include="ContinueDialog.cpp" />
+    <ClCompile Include="DataSync.cpp" />
+    <ClCompile Include="DeadAlien.cpp" />
+    <ClCompile Include="DeadFish.cpp" />
+    <ClCompile Include="Fish.cpp" />
+    <ClCompile Include="FishButtonWidget.cpp" />
+    <ClCompile Include="FishNamingDialog.cpp" />
+    <ClCompile Include="FishSongMgr.cpp" />
+    <ClCompile Include="FishTypePet.cpp" />
+    <ClCompile Include="Food.cpp" />
+    <ClCompile Include="FoodDialog.cpp" />
+    <ClCompile Include="GameSelector.cpp" />
+    <ClCompile Include="Gekko.cpp" />
+    <ClCompile Include="Grubber.cpp" />
+    <ClCompile Include="HatchScreen.cpp" />
+    <ClCompile Include="HighScoreMgr.cpp" />
+    <ClCompile Include="HighScoreScreen.cpp" />
+    <ClCompile Include="InterludeScreen.cpp" />
+    <ClCompile Include="InternetManager.cpp" />
+    <ClCompile Include="Larva.cpp" />
+    <ClCompile Include="MenuButtonWidget.cpp" />
+    <ClCompile Include="MessageWidget.cpp" />
+    <ClCompile Include="Missle.cpp" />
+    <ClCompile Include="MoneyDialog.cpp" />
+    <ClCompile Include="MyLabelWidget.cpp" />
+    <ClCompile Include="NewUserDialog.cpp" />
+    <ClCompile Include="OptionsDialog.cpp" />
+    <ClCompile Include="Oscar.cpp" />
+    <ClCompile Include="OtherTypePet.cpp" />
+    <ClCompile Include="Penta.cpp" />
+    <ClCompile Include="PetButtonWidget.cpp" />
+    <ClCompile Include="PetDialog.cpp" />
+    <ClCompile Include="PetsScreen.cpp" />
+    <ClCompile Include="ProfileMgr.cpp" />
+    <ClCompile Include="RegisterDialog.cpp" />
+    <ClCompile Include="ScreenSaverDialog.cpp" />
+    <ClCompile Include="SexyApp.cpp" />
+    <ClCompile Include="Shadow.cpp" />
+    <ClCompile Include="Shot.cpp" />
+    <ClCompile Include="SimFishScreen.cpp" />
+    <ClCompile Include="SimSetupScreen.cpp" />
+    <ClCompile Include="StarField.cpp" />
+    <ClCompile Include="StoreButtonWidget.cpp" />
+    <ClCompile Include="StoryScreen.cpp" />
+    <ClCompile Include="SylvesterFish.cpp" />
+    <ClCompile Include="TankScreen.cpp" />
+    <ClCompile Include="ToolTipWidget.cpp" />
+    <ClCompile Include="Ultra.cpp" />
+    <ClCompile Include="UpdateCheckDialog.cpp" />
+    <ClCompile Include="UserDialog.cpp" />
+    <ClCompile Include="VirtualDialog.cpp" />
+    <ClCompile Include="Warp.cpp" />
+    <ClCompile Include="WinFishApp.cpp" />
+    <ClCompile Include="GameObject.cpp" />
+    <ClCompile Include="HelpScreen.cpp" />
+    <ClCompile Include="Res.cpp" />
+    <ClCompile Include="StoreScreen.cpp" />
+    <ClCompile Include="TitleScreen.cpp" />
+    <ClCompile Include="Window.cpp" />
+    <ClCompile Include="WinFishAppCommon.cpp" />
+    <ClCompile Include="WorkerThread.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Alien.h" />
+    <ClInclude Include="BallFish.h" />
+    <ClInclude Include="BetaSupport.h" />
+    <ClInclude Include="BiFish.h" />
+    <ClInclude Include="Bilaterus.h" />
+    <ClInclude Include="BilaterusBone.h" />
+    <ClInclude Include="BilaterusHead.h" />
+    <ClInclude Include="Board.h" />
+    <ClInclude Include="BonusScreen.h" />
+    <ClInclude Include="BoxingGlove.h" />
+    <ClInclude Include="Breeder.h" />
+    <ClInclude Include="BubbleMgr.h" />
+    <ClInclude Include="Coin.h" />
+    <ClInclude Include="ContinueDialog.h" />
+    <ClInclude Include="DataSync.h" />
+    <ClInclude Include="DeadAlien.h" />
+    <ClInclude Include="DeadFish.h" />
+    <ClInclude Include="Fish.h" />
+    <ClInclude Include="FishButtonWidget.h" />
+    <ClInclude Include="FishNamingDialog.h" />
+    <ClInclude Include="FishSongMgr.h" />
+    <ClInclude Include="FishTypePet.h" />
+    <ClInclude Include="Food.h" />
+    <ClInclude Include="FoodDialog.h" />
+    <ClInclude Include="GameSelector.h" />
+    <ClInclude Include="Gekko.h" />
+    <ClInclude Include="Grubber.h" />
+    <ClInclude Include="HatchScreen.h" />
+    <ClInclude Include="HighScoreMgr.h" />
+    <ClInclude Include="HighScoreScreen.h" />
+    <ClInclude Include="InterludeScreen.h" />
+    <ClInclude Include="InternetManager.h" />
+    <ClInclude Include="Larva.h" />
+    <ClInclude Include="MenuButtonWidget.h" />
+    <ClInclude Include="MessageWidget.h" />
+    <ClInclude Include="Missle.h" />
+    <ClInclude Include="MoneyDialog.h" />
+    <ClInclude Include="MyLabelWidget.h" />
+    <ClInclude Include="NewUserDialog.h" />
+    <ClInclude Include="OptionsDialog.h" />
+    <ClInclude Include="Oscar.h" />
+    <ClInclude Include="OtherTypePet.h" />
+    <ClInclude Include="Penta.h" />
+    <ClInclude Include="PetButtonWidget.h" />
+    <ClInclude Include="PetDialog.h" />
+    <ClInclude Include="PetsScreen.h" />
+    <ClInclude Include="ProfileMgr.h" />
+    <ClInclude Include="RegisterDialog.h" />
+    <ClInclude Include="ScreenSaverDialog.h" />
+    <ClInclude Include="SexyApp.h" />
+    <ClInclude Include="Shadow.h" />
+    <ClInclude Include="Shot.h" />
+    <ClInclude Include="SimFishScreen.h" />
+    <ClInclude Include="SimSetupScreen.h" />
+    <ClInclude Include="StarField.h" />
+    <ClInclude Include="StoreButtonWidget.h" />
+    <ClInclude Include="StoryScreen.h" />
+    <ClInclude Include="SylvesterFish.h" />
+    <ClInclude Include="TankScreen.h" />
+    <ClInclude Include="ToolTipWidget.h" />
+    <ClInclude Include="Ultra.h" />
+    <ClInclude Include="UpdateCheckDialog.h" />
+    <ClInclude Include="UserDialog.h" />
+    <ClInclude Include="VirtualDialog.h" />
+    <ClInclude Include="Warp.h" />
+    <ClInclude Include="WinFishApp.h" />
+    <ClInclude Include="GameObject.h" />
+    <ClInclude Include="HelpScreen.h" />
+    <ClInclude Include="Res.h" />
+    <ClInclude Include="StoreScreen.h" />
+    <ClInclude Include="TitleScreen.h" />
+    <ClInclude Include="WinFishAppCommon.h" />
+    <ClInclude Include="WorkerThread.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Insaniquarium.rc" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
