@@ -383,7 +383,7 @@ void Sexy::Coin::Draw(Graphics* g)
 
 	bool isShell = Coin::IsShell();
 	Image* aCoinImg = IMAGE_SHELLS;
-	if (mCoinType == COIN_SILVER_C || mCoinType == SHELL_SILVER)
+	if (mCoinType == COIN_SILVER_C || mCoinType == BOUNCED_SILVER)
 	{
 		int aX = 20;
 		int aY = 20;
@@ -397,7 +397,7 @@ void Sexy::Coin::Draw(Graphics* g)
 		g->SetColorizeImages(false);
 		return;
 	}
-	else if (mCoinType == COIN_GOLD_C || mCoinType == SHELL_GOLD)
+	else if (mCoinType == COIN_GOLD_C || mCoinType == BOUNCED_GOLD)
 	{
 		int aX = 20;
 		int aY = 20;
@@ -411,7 +411,7 @@ void Sexy::Coin::Draw(Graphics* g)
 		g->SetColorizeImages(false);
 		return;
 	}
-	else if (mCoinType == 5 || mCoinType == 12 || mCoinType == COIN_DIAMOND || mCoinType == 11)
+	else if (mCoinType == 5 || mCoinType == 12 || mCoinType == COIN_DIAMOND || mCoinType == BOUNCED_DIAMOND)
 	{
 		int aRow = 3;
 		int aX = 0;
@@ -428,7 +428,7 @@ void Sexy::Coin::Draw(Graphics* g)
 		g->SetColorizeImages(false);
 		return;
 	}
-	else if (mCoinType == COIN_PEARL || mCoinType == 13)
+	else if (mCoinType == COIN_PEARL || mCoinType == BOUNCED_PEARL)
 	{
 		if (!isShell)
 		{
@@ -443,7 +443,7 @@ void Sexy::Coin::Draw(Graphics* g)
 	}
 	else
 	{
-		if (mCoinType == 7 || mCoinType == 14)
+		if (mCoinType == COIN_TREASURE || mCoinType == BOUNCED_TREASURE)
 		{
 			if (isShell)
 			{
@@ -465,7 +465,7 @@ void Sexy::Coin::Draw(Graphics* g)
 				return;
 			}
 
-			if (mCoinType == COIN_STAR || mCoinType == SHELL_STAR)
+			if (mCoinType == COIN_STAR || mCoinType == BOUNCED_STAR)
 			{
 				g->DrawImageCel(IMAGE_MONEY, 0, 0, mAnimationFrame, 2);
 				g->SetColorizeImages(false);
@@ -622,7 +622,7 @@ void Sexy::Coin::MouseDown(int x, int y, int theClickCount)
 		m0x198 = true;
 		if (!aBoard->mIsBonusRound || !aBoard->Unk09(this))
 		{
-			if (mCoinType == COIN_DIAMOND || mCoinType == 5 || mCoinType == 11 || mCoinType == 12)
+			if (mCoinType == COIN_DIAMOND || mCoinType == 5 || mCoinType == BOUNCED_DIAMOND || mCoinType == 12)
 				aBoard->PlaySample(SOUND_DIAMOND_ID, 3, 1.0);
 			else
 			{
@@ -630,11 +630,11 @@ void Sexy::Coin::MouseDown(int x, int y, int theClickCount)
 					aBoard->PlayChompSound(false);
 				else
 				{
-					if (mCoinType == COIN_PEARL || mCoinType == 13)
+					if (mCoinType == COIN_PEARL || mCoinType == BOUNCED_PEARL)
 						aBoard->PlaySample(SOUND_PEARL_ID, 3, 1.0);
 					else
 					{
-						if (mCoinType == 7 || mCoinType == 14)
+						if (mCoinType == COIN_TREASURE || mCoinType == BOUNCED_TREASURE)
 						{
 							aBoard->PlaySample(IsShell() ? SOUND_BONUSCOLLECT_ID : SOUND_TREASURE_ID, 3, 1.0);
 						}
@@ -704,25 +704,25 @@ bool Sexy::Coin::IsShell()
 
 int Sexy::Coin::GetValue()
 {
-	if (mCoinType == COIN_SILVER_C || mCoinType == SHELL_SILVER)
+	if (mCoinType == COIN_SILVER_C || mCoinType == BOUNCED_SILVER)
 	{
 		if (IsShell())
 			return mComboCount;
 		return 15;
 	}
-	if (mCoinType == COIN_GOLD_C || mCoinType == SHELL_GOLD)
+	if (mCoinType == COIN_GOLD_C || mCoinType == BOUNCED_GOLD)
 	{
 		if (IsShell())
 			return mComboCount * 2;
 		return 35;
 	}
-	if (mCoinType == COIN_STAR || mCoinType == SHELL_STAR)
+	if (mCoinType == COIN_STAR || mCoinType == BOUNCED_STAR)
 	{
 		if (IsShell())
 			return mComboCount * 3;
 		return 40;
 	}
-	if (mCoinType == COIN_DIAMOND || mCoinType == 11 || mCoinType == 5 || mCoinType == 12)
+	if (mCoinType == COIN_DIAMOND || mCoinType == BOUNCED_DIAMOND || mCoinType == 5 || mCoinType == 12)
 	{
 		if (IsShell())
 			return mComboCount * 5;
@@ -734,7 +734,7 @@ int Sexy::Coin::GetValue()
 			return mComboCount * 10;
 		return 500;
 	}
-	if (mCoinType == 7 || mCoinType == 14)
+	if (mCoinType == COIN_TREASURE || mCoinType == BOUNCED_TREASURE)
 	{
 		if (IsShell())
 			return mComboCount * 20;
@@ -770,11 +770,11 @@ void Sexy::Coin::ReceiveMoney()
 void Sexy::Coin::PetCollected()
 {
 	ReceiveMoney();
-	if (mCoinType == COIN_DIAMOND || mCoinType == 5 || mCoinType == 11 || mCoinType == 12)
+	if (mCoinType == COIN_DIAMOND || mCoinType == 5 || mCoinType == BOUNCED_DIAMOND || mCoinType == 12)
 		mApp->mBoard->PlaySample(SOUND_DIAMOND_ID, 3, 1.0);
-	else if (mCoinType == COIN_PEARL || mCoinType == 13)
+	else if (mCoinType == COIN_PEARL || mCoinType == BOUNCED_PEARL)
 		mApp->mBoard->PlaySample(SOUND_PEARL_ID, 3, 1.0);
-	else if (mCoinType == 7 || mCoinType == 14)
+	else if (mCoinType == COIN_TREASURE || mCoinType == BOUNCED_TREASURE)
 		mApp->mBoard->PlaySample(IsShell() ? SOUND_BONUSCOLLECT_ID : SOUND_TREASURE_ID, 3, 1.0);
 	else
 		mApp->mBoard->PlayPointsSound();

@@ -18,7 +18,7 @@
 - **Logic:** 
 - Fixed a bug where the star potions would not correctly turn a guppy into the star guppy.
 - Fixed a bug where the tier 2 and 3 fish food stopped guppies from growing. (There was an error regarding the operator precedence.)
-- 
+- Renamed coins, and it seems that the coins value from 8 to 14 are those bounced by Nimbus. I didn't find any code regarding this other than Nimbus's ability, and there's IsShell function separately.
 
 ### Added
 - Made it easier for modders to make custom alien waves by introducing new function.
