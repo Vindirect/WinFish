@@ -41,7 +41,7 @@ Sexy::DeadFish::DeadFish(int theX, int theY, double theVX, double theVY, double 
 	m0x1a0 = 125;
 	mMouseVisible = false;
 	mFlipped = facingRight;
-	m0x18c = 0;
+	mTimer = 0;
 	m0x190 = 100;
 	m0x188 = false;
 	mApp->mBoard->mWidgetManager->AddWidget(this); // Weird, being called 2 times for the same object
@@ -58,7 +58,7 @@ void Sexy::DeadFish::Update()
 	if (m0x190 >= 0 && m0x190 <= 10)
 	{
 		m0x190--;
-		m0x18c = m0x190;
+		mTimer = m0x190;
 		if (m0x190 == 10)
 			m0x190 = 10; // ??? WHAT
 	}
@@ -67,23 +67,23 @@ void Sexy::DeadFish::Update()
 		if (mObjType == 9 || mObjType == 8)
 		{
 			if (m0x1a0 > 105)
-				m0x18c = 9 - (m0x1a0 - 106) / 2;
+				mTimer = 9 - (m0x1a0 - 106) / 2;
 			else
-				m0x18c = 9;
+				mTimer = 9;
 		}
 		else
 		{
 			if (m0x1a0 < 106)
 			{
 				if (m0x1a0 == 104 || m0x1a0 == 103)
-					m0x18c = 8;
+					mTimer = 8;
 				else if (m0x1a0 == 102 || m0x1a0 == 101)
-					m0x18c = 7;
+					mTimer = 7;
 				else
-					m0x18c = 9 + (m0x1a0 <= 100 ? -3 : 0);
+					mTimer = 9 + (m0x1a0 <= 100 ? -3 : 0);
 			}
 			else
-				m0x18c = 9 - (m0x1a0 - 106) / 2;
+				mTimer = 9 - (m0x1a0 - 106) / 2;
 		}
 	}
 
@@ -200,43 +200,43 @@ void Sexy::DeadFish::Draw(Graphics* g)
 	if (mObjType == TYPE_GEKKO)
 	{
 		aDrawImage = IMAGE_GEKKO;
-		theSrcRect = Rect(m0x18c * 80, 400, 80, 80);
+		theSrcRect = Rect(mTimer * 80, 400, 80, 80);
 	}
 	else if (mObjType == TYPE_ULTRA)
 	{
-		if (m0x1a0 >= 90 && m0x18c < 5) // 97
+		if (m0x1a0 >= 90 && mTimer < 5) // 97
 		{
-			double aRed = (m0x18c * 5 + 1250) / 5;
-			double aGreen = (m0x18c * 40 + 1075) / 5;
-			double aBlue = (m0x18c * 160 + 475) / 5;
+			double aRed = (mTimer * 5 + 1250) / 5;
+			double aGreen = (mTimer * 40 + 1075) / 5;
+			double aBlue = (mTimer * 160 + 475) / 5;
 			g->SetColor(Color(aRed, aGreen, aBlue, 255));
 		}
 
-		theSrcRect = Rect(m0x18c * 160, 480, 160, 160);
+		theSrcRect = Rect(mTimer * 160, 480, 160, 160);
 		aDrawImage = IMAGE_ULTRA;
 	}
 	else if (mObjType == TYPE_GRUBBER)
 	{
 		flag = false;
-		if (m0x1a0 >= 90 && m0x18c < 5)
+		if (m0x1a0 >= 90 && mTimer < 5)
 		{
-			double aRed = (m0x18c * 5 + 1250) / 5;
-			double aGreen = (m0x18c * 40 + 1075) / 5;
-			double aBlue = (m0x18c * 160 + 475) / 5;
+			double aRed = (mTimer * 5 + 1250) / 5;
+			double aGreen = (mTimer * 40 + 1075) / 5;
+			double aBlue = (mTimer * 160 + 475) / 5;
 			g->SetColor(Color(aRed, aGreen, aBlue, 255));
 		}
 		aDrawImage = IMAGE_GRUBBER;
-		theSrcRect = Rect(m0x18c * 80, 240, 80, 80);
+		theSrcRect = Rect(mTimer * 80, 240, 80, 80);
 	}
 	else if (mObjType == TYPE_PENTA)
 	{
 		flag = false;
-		theSrcRect = Rect(m0x18c * 80, 160, 80, 80);
+		theSrcRect = Rect(mTimer * 80, 160, 80, 80);
 		aDrawImage = IMAGE_STARCATCHER;
 	}
 	else if (mObjType == TYPE_OSCAR)
 	{
-		theSrcRect = Rect(m0x18c * 80, 320, 80, 80);
+		theSrcRect = Rect(mTimer * 80, 320, 80, 80);
 		aDrawImage = IMAGE_SMALLDIE;
 	}
 	else if (mObjType < TYPE_OSCAR)
@@ -244,12 +244,12 @@ void Sexy::DeadFish::Draw(Graphics* g)
 		int aRow = mObjType;
 		if (mObjType > TYPE_BIG_GUPPY) 
 			aRow--;
-		theSrcRect = Rect(m0x18c * 80, aRow * 80, 80, 80);
+		theSrcRect = Rect(mTimer * 80, aRow * 80, 80, 80);
 		aDrawImage = IMAGE_SMALLDIE;
 	}
 	else if (mObjType >= TYPE_BREEDER && mObjType <= TYPE_BIG_BREEDER)
 	{
-		theSrcRect = Rect(m0x18c * 80, (mObjType - TYPE_BREEDER) * 240, 80, 80);
+		theSrcRect = Rect(mTimer * 80, ((mObjType - TYPE_BREEDER) * 240) + 160, 80, 80);
 		aDrawImage = IMAGE_HUNGRYBREEDER;
 	}
 	if(aDrawImage)
@@ -272,7 +272,7 @@ void Sexy::DeadFish::Sync(DataSync* theSync)
 	theSync->SyncDouble(mVY);
 	theSync->SyncDouble(mSpeedMod);
 	theSync->SyncBool(m0x188);
-	theSync->SyncLong(m0x18c);
+	theSync->SyncLong(mTimer);
 	theSync->SyncLong(m0x190);
 	theSync->SyncLong(m0x194);
 	theSync->SyncDouble(m0x198);

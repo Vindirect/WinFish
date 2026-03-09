@@ -15,7 +15,7 @@ namespace Sexy
 		double mVY;
 		double mSpeedMod;
 		bool m0x188;
-		int m0x18c;
+		int mTimer; // former m0x18c
 		int m0x190;
 		int m0x194;
 		double m0x198;

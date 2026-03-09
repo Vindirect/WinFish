@@ -91,6 +91,7 @@ Board::Board(WinFishApp* theApp)
 	mCheatCodes[CC_BETATEST] = new CheatCode("welovebetatesters");
 	mCheatCodes[CC_SUPERMEGA] = new CheatCode("supermegaultra");
 	mCheatCodes[CC_TIME] = new CheatCode("time");
+	mCheatCodes[CC_SKIP] = new CheatCode("skip");
 	
 	mFishSongMgr = new FishSongMgr();
 	mFishSongMgr->mTone = SOUND_TONE;
@@ -934,7 +935,7 @@ void Board::Update()
 			else if (mTank == 4)
 				aDifIncreaseProb = 6;
 
-			if (m0x45c % aDifIncreaseProb == 0 && m0x45c != 0)
+			if (mWave % aDifIncreaseProb == 0 && mWave != 0)
 			{
 				mMessageWidget->mIsBlinking = true;
 				mMessageWidget->mMessageTimer = 274;
@@ -1021,7 +1022,7 @@ void Board::Update()
 					else if (mTank == 4)
 						aDifIncreaseProb = 6;
 
-					int aVal = m0x45c / aDifIncreaseProb;
+					int aVal = mWave / aDifIncreaseProb;
 					if (mAlienExpect == 12)
 						aVal--;
 
@@ -1041,57 +1042,14 @@ void Board::Update()
 						SetAlienExpectVT();
 					else
 					{
-						if (mTank == 1 && mLevel == 5)
-							mAlienExpect = ((mApp->mSeed->Next() % 2 != 0) ? ALIEN_BALROG : 9);
-						else if (mTank == 2 && mLevel == 5)
-						{
-							if(mAlienExpect == 9)
-								mAlienExpect = ((mApp->mSeed->Next() % 2 != 0) ? ALIEN_GUS : ALIEN_DESTRUCTOR);
-							if (mApp->mSeed->Next() % 10 == 0)
-								mAlienExpect = (mAlienExpect != ALIEN_DESTRUCTOR) + ALIEN_GUS;
-							else if (mApp->mSeed->Next() % 20 == 0)
-								mAlienExpect = 9;
-						}
-						else if (mTank == 3)
-						{
-							if (mLevel == 2)
-							{
-								if(mApp->mSeed->Next() % 10 == 0)
-									mAlienExpect = (mAlienExpect != ALIEN_DESTRUCTOR) + ALIEN_GUS;
-							}
-							else if(mLevel == 5)
-							{
-								mAlienExpect = (mApp->mSeed->Next() % 2 != 0 ? ALIEN_PSYCHOSQUID : ALIEN_ULYSEES);
-							}
-						}
-						else if (mTank == 4)
-						{
-							if (mLevel == 3)
-							{
-								mAlienExpect = (mApp->mSeed->Next() % 2 != 0 ? ALIEN_GUS : 10);
-							}
-							else if (mLevel == 4)
-							{
-								mAlienExpect = (mApp->mSeed->Next() % 2 != 0 ? ALIEN_BILATERUS : 11);
-							}
-							else if (mLevel == 5)
-							{
-								int anAlienChance = mApp->mSeed->Next() % 5;
-								if (anAlienChance < 2)
-									mAlienExpect = 10;
-								else
-									mAlienExpect = (anAlienChance > 3 ? ALIEN_BILATERUS : 11);
-								if (mApp->mGameMode == GAMEMODE_CHALLENGE && m0x45c > 4 && mAlienExpect == ALIEN_BILATERUS)
-									mAlienExpect = 12;
-							}
-						}
+						SetAlienExpect();
 					}
 				} // 818
 				else
 				{
 					RelaxModeConfig();
 				}
-				m0x45c++;
+				mWave++;
 				mAlienTimer = 3000;
 			}
 			else if (mAlienTimer < 275)
@@ -2283,7 +2241,7 @@ void Sexy::Board::StartGame()
 	mGameUpdateCnt = 0;
 	m0x450 = 0;
 	m0x454 = 0;
-	m0x45c = 0;
+	mWave = 0;
 	m0x458 = 0;
 	m0x4e8 = 0;
 	m0x3b4 = Unk01();
@@ -2458,7 +2416,7 @@ bool Sexy::Board::SyncGameData(DataSync& theSync)
 	theSync.SyncLong(m0x450);
 	theSync.SyncLong(m0x454);
 	theSync.SyncLong(m0x458);
-	theSync.SyncLong(m0x45c);
+	theSync.SyncLong(mWave);
 	theSync.SyncLong(m0x460);
 	theSync.SyncLong(m0x464);
 	theSync.SyncLong(m0x468);
@@ -2779,7 +2737,7 @@ void Sexy::Board::InitBonusLevel()
 	m0x450 = 0;
 	m0x454 = 0;
 	m0x458 = 0;
-	m0x45c = 0;
+	mWave = 0;
 	switch (mTank)
 	{
 	case 2:
@@ -4344,7 +4302,7 @@ void Sexy::Board::StartVirtualTank()
 	m0x450 = 0;
 	m0x454 = 0;
 	m0x458 = 0;
-	m0x45c = 0;
+	mWave = 0;
 
 	int aVal = Unk01();
 	m0x3b4 = aVal;
@@ -4466,6 +4424,29 @@ bool Sexy::Board::DoCheatCode(int theCheatCode)
 	{
 		ShowText(aStatus ? "Zombie Mode Enabled" : "Zombie Mode Disabled", false, -1);
 		gZombieMode = aStatus;
+	}
+	else if (theCheatCode == CC_SKIP)
+	{
+		mApp->mCurrentProfile->NextLevel();
+		int aPetId = -1;
+		if (mTank == 4 && mLevel == 5)
+			aPetId = 999;
+		else if (mTank == 5)
+		{
+			aPetId = PET_PRESTO;
+			mApp->mCurrentProfile->UnlockPet(aPetId, true);
+		}
+		else
+		{
+			aPetId = mTank * 5 - 6 + mLevel;
+			if (aPetId >= PET_STINKY && aPetId < PET_END)
+				mApp->mCurrentProfile->UnlockPet(aPetId, true);
+		}
+
+		if (aPetId == PET_PRESTO)
+			mApp->mCurrentProfile->AddShells(5000);
+
+		mApp->SwitchToHatchScreen(aPetId);
 	}
 	return true;
 }
@@ -5958,4 +5939,52 @@ Sexy::BoardOverlay::~BoardOverlay()
 void Sexy::BoardOverlay::Draw(Graphics* g)
 {
 	mBoard->DrawOverlay(g, mPriority);
+}
+
+void Board::SetAlienExpect()
+{
+	if (mTank == 1 && mLevel == 5)
+		mAlienExpect = ((mApp->mSeed->Next() % 2 != 0) ? ALIEN_BALROG : 9);
+	else if (mTank == 2 && mLevel == 5)
+	{
+		if (mAlienExpect == 9)
+			mAlienExpect = ((mApp->mSeed->Next() % 2 != 0) ? ALIEN_GUS : ALIEN_DESTRUCTOR);
+		if (mApp->mSeed->Next() % 10 == 0)
+			mAlienExpect = (mAlienExpect != ALIEN_DESTRUCTOR) + ALIEN_GUS;
+		else if (mApp->mSeed->Next() % 20 == 0)
+			mAlienExpect = 9;
+	}
+	else if (mTank == 3)
+	{
+		if (mLevel == 2)
+		{
+			if (mApp->mSeed->Next() % 10 == 0)
+				mAlienExpect = (mAlienExpect != ALIEN_DESTRUCTOR) + ALIEN_GUS;
+		}
+		else if (mLevel == 5)
+		{
+			mAlienExpect = (mApp->mSeed->Next() % 2 != 0 ? ALIEN_PSYCHOSQUID : ALIEN_ULYSEES);
+		}
+	}
+	else if (mTank == 4)
+	{
+		if (mLevel == 3)
+		{
+			mAlienExpect = (mApp->mSeed->Next() % 2 != 0 ? ALIEN_GUS : 10);
+		}
+		else if (mLevel == 4)
+		{
+			mAlienExpect = (mApp->mSeed->Next() % 2 != 0 ? ALIEN_BILATERUS : 11);
+		}
+		else if (mLevel == 5)
+		{
+			int anAlienChance = mApp->mSeed->Next() % 5;
+			if (anAlienChance < 2)
+				mAlienExpect = 10;
+			else
+				mAlienExpect = (anAlienChance > 3 ? ALIEN_BILATERUS : 11);
+			if (mApp->mGameMode == GAMEMODE_CHALLENGE && mWave > 4 && mAlienExpect == ALIEN_BILATERUS)
+				mAlienExpect = 12;
+		}
+	}
 }

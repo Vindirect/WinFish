@@ -98,7 +98,8 @@ namespace Sexy
 		CC_ZOMBIE,
 		CC_BETATEST,
 		CC_SUPERMEGA,
-		CC_TIME
+		CC_TIME,
+		CC_SKIP
 	};
 
 	///////////////////////////////////////////////////////////////////////////////
@@ -141,7 +142,7 @@ namespace Sexy
 		ButtonWidget*						mMenuButton;
 		MessageWidget*						mMessageWidget;
 		BubbleMgr*							mBubbleMgr;
-		CheatCode*							mCheatCodes[8];
+		CheatCode*							mCheatCodes[9];
 		StarField*							mStarField;
 		int									mPetsInTank[PET_END];
 		int									mSoundPlayedTimerArray[SOUND_END_ID - SOUND_START_ID + 1];
@@ -200,7 +201,7 @@ namespace Sexy
 		int									m0x450;
 		int									m0x454;
 		int									m0x458;
-		int									m0x45c;
+		int									mWave; // former m0x45c
 		int									m0x460;
 		int									m0x464;
 		int									m0x468;
@@ -394,6 +395,8 @@ namespace Sexy
 		void					RessurectPenta(int theX);
 		void					RessurectGrubber(int theX);
 		void					RessurectBreeder(int theX, int theY, int theSize, bool flipped);
+
+		void                    SetAlienExpect();
 	};
 
 	///////////////////////////////////////////////////////////////////////////////
