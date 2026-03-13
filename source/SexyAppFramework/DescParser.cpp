@@ -429,7 +429,7 @@ bool DescParser::LoadDescriptor(const std::string& theFileName)
 	//Apparently VC6 doesn't have a clear() function for basic_strings
 	//mError.clear();
 	mError.erase();
-	mError.erase(mError.begin());
+	//mError.erase(mError.begin());
 
 	PFILE *aStream = p_fopen(theFileName.c_str(),"r");
 	if (aStream==NULL)
