@@ -494,4 +494,7 @@
       <Filter>Resource Files</Filter>
     </ResourceCompile>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="changelog.md" />
+  </ItemGroup>
 </Project>

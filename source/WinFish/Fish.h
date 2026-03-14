@@ -42,6 +42,7 @@ namespace Sexy
 		bool mBeginner;
 		bool mIsGuppy;
 		bool mVirtualFish;
+		bool mIsJr;
 
 	public:
 		Fish();

@@ -1072,6 +1072,7 @@ bool Sexy::Breeder::GiveBirth()
 	aGuppy->mName += " JR.";
 	aGuppy->mHometownIdx = 0;
 	aGuppy->mVirtualFish = true;
+	aGuppy->mIsJr = true;
 	if (aGuppy->mInvisible)
 		aGuppy->ShowInvisibility();
 	mApp->mBoard->SpawnGameObject(aGuppy, false);

@@ -79,6 +79,7 @@ Fish::Fish() : GameObject()
     mUnusedTimer = 0;
     mVirtualFish = 0;
     mRainbowFishDeterminant = 0;
+    mIsJr = false;
 }
 
 Fish::Fish(int theX, int theY) : GameObject()
@@ -633,7 +634,7 @@ int Sexy::Fish::SpecialReturnValue()
 
 int Sexy::Fish::GetShellPrice()
 {
-    int aVal = GetShellPrice();
+    int aVal = GameObject::GetShellPrice(); // this caused stack overflow
     if (mVirtualFish)
     {
         if (aVal < 0)
@@ -671,14 +672,14 @@ void Sexy::Fish::OnFoodAte(GameObject* obj)
 
     mApp->mBoard->PlaySlurpSound(mVoracious);
     Food* aFood = (Food*)obj;
-    bool unkflag01 = aFood->mExoticFoodType == 2;
-    Unk02(unkflag01);
+    bool IsSnot = aFood->mExoticFoodType == 2; // former unkflag01
+    Unk02(IsSnot);
 
     bool unkflag02 = true;
     bool doPart = true;
     if (mApp->mGameMode == GAMEMODE_VIRTUAL_TANK)
     {
-        if (mVirtualTankId < 0 || unkflag01)
+        if (mVirtualTankId < 0 || IsSnot)
         {
             unkflag02 = false;
         }
@@ -694,7 +695,7 @@ void Sexy::Fish::OnFoodAte(GameObject* obj)
 
     if (doPart)
     { // 48
-        if (unkflag01)
+        if (IsSnot)
         {
             if (mApp->mGameMode == GAMEMODE_VIRTUAL_TANK) // 50
             {
@@ -718,7 +719,7 @@ void Sexy::Fish::OnFoodAte(GameObject* obj)
         }
     }
 
-    if (!doPart || !unkflag01) // from 91 to 188
+    if (!doPart || !IsSnot) // from 91 to 188
     {
         if (aFood->mFoodType == 0)
         {
@@ -731,7 +732,7 @@ void Sexy::Fish::OnFoodAte(GameObject* obj)
         {
             mHunger += 700;
             if (mHunger > 1000) mHunger = 1000;
-            if (unkflag02) mFoodAte = mFoodAte + 1 + mApp->mGameMode != GAMEMODE_VIRTUAL_TANK;
+            if (unkflag02) mFoodAte += 1 + (mApp->mGameMode != GAMEMODE_VIRTUAL_TANK ? 1 : 0);
         }
         else if (aFood->mFoodType == 3)
         {
@@ -765,7 +766,7 @@ void Sexy::Fish::OnFoodAte(GameObject* obj)
             else // 156
             {
                 mHunger += 1100;
-                if (aFood->mFoodType == 2)
+                if (mSize == 2) // king guppies cannot be star guppies, and mFoodType is already 3
                 {
                     if (mHunger > 1400)
                         mHunger = 1400;
@@ -788,8 +789,7 @@ void Sexy::Fish::OnFoodAte(GameObject* obj)
                 mHunger += 1100;
                 if (mHunger > 1400) mHunger = 1400;
             }
-            if (unkflag02)
-                mFoodAte = mFoodAte + 2 + mApp->mGameMode != GAMEMODE_VIRTUAL_TANK;
+            if (unkflag02) mFoodAte += 2 + (mApp->mGameMode != GAMEMODE_VIRTUAL_TANK ? 1 : 0);
         }
     }
 
@@ -929,8 +929,11 @@ void Sexy::Fish::Sync(DataSync* theSync)
     theSync->SyncLong(mCoinDropT);
     theSync->SyncBool(mBeginner);
     theSync->SyncBool(mIsGuppy);
-    if(mVirtualTankId > -1)
+    if (mVirtualTankId > -1)
+    {
         theSync->SyncBool(mVirtualFish);
+        theSync->SyncBool(mIsJr);
+    }
 }
 
 bool Fish::Hungry()
@@ -963,7 +966,7 @@ bool Fish::Hungry()
         }
         if (mHunger < -499 && mBeginner)
         {
-            Die();
+            Die(true);
             return false;
         }
         if (mHunger < 500)
@@ -977,7 +980,7 @@ bool Fish::Hungry()
         }
     }
     else
-        Die();
+        Die(true);
     return false;
 }
 
@@ -1309,32 +1312,26 @@ void Fish::DropCoin()
     {
         int aCoinType = -999;
         if (mPreNamedTypeId == ROCKY)
-            aCoinType = 7;
-        else if(mPreNamedTypeId == SANTA)
+            aCoinType = COIN_TREASURE;
+        else if (mPreNamedTypeId == SANTA)
         {
             if (mSize > TYPE_MEDIUM_GUPPY)
-                aCoinType = 7;
+                aCoinType = COIN_TREASURE;
         }
         else
         {
             aCoinType = mSize;
-            if (mSize == TYPE_MEDIUM_GUPPY)
-                aCoinType = COIN_SILVER_C;
-            else if (mSize == TYPE_BIG_GUPPY)
-                aCoinType = COIN_GOLD_C;
             if (!mVirtualFish)
             {
                 if (mSize < 1)
                     aCoinType = -999;
             }
-            else if (mSize == TYPE_MEDIUM_GUPPY)
-                aCoinType = 4;
-            else if (mSize == TYPE_BIG_GUPPY)
-                aCoinType = 6;
-            else if (mSize == TYPE_CROWNED_GUPPY)
-                aCoinType = 7;
-            else
-                aCoinType = 2;
+            else if (mIsJr)
+            {
+                if (mSize == 1) aCoinType = COIN_GOLD_C;
+                else if (mSize == 2) aCoinType = COIN_DIAMOND;
+                else if (mSize == 4) aCoinType = COIN_TREASURE;
+            }
         }
 
         if (aCoinType != -999)
@@ -1558,6 +1555,7 @@ void Fish::Init(int theX, int theY)
     mUnusedTimer = 0;
     mUnusedVXWadsworthAddon = 0;
     mIsGuppy = 1;
+    mIsJr = false;
 }
 
 void Fish::UpdateRainbow()

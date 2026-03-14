@@ -1,4 +1,4 @@
-#include "EditWidget.h"
+ï»¿#include "EditWidget.h"
 #include "SysFont.h"
 #include "WidgetManager.h"
 #include "SexyAppBase.h"
@@ -263,7 +263,7 @@ bool EditWidget::IsPartOfWord(SexyChar theChar)
 	return (((theChar >= _S('A')) && (theChar <= _S('Z'))) ||
 			((theChar >= _S('a')) && (theChar <= _S('z'))) ||
 			((theChar >= _S('0')) && (theChar <= _S('9'))) ||
-			(((unsigned int)theChar >= (unsigned int)(L'À')) && ((unsigned int)theChar <= (unsigned int)(L'ÿ'))) ||
+			(((unsigned int)theChar >= 0xC0) && ((unsigned int)theChar <= 0xFF)) || // This checks if the character is bewteen Ã€ to Ã¿, but fails miserably in compilers of some languages.
 			(theChar == _S('_')));
 }
 
