@@ -1,13 +1,13 @@
 # changelog
 
-## [1.2.0] - 2026-03-09
+## [1.2.1] - 2026-03-14
 ### Fixed
 - **Engine:** 
 - Updated project to build on Visual Studio 2022 (v143 toolset).
 
 - **Stability:** 
 - Resolved critical Stack Overflow errors occurring in the fish menu in the Virtual Tank.
-- Changed EditWidget's character addressing, might need to be fixed later
+- Changed EditWidget's character addressing, now it works well on any compiler
 
 - **Visuals:** 
 - Fixed sprite rendering errors where hungry breeder sprite appeared instead of the dead one.
