@@ -8,7 +8,7 @@ Status: Fully playable, may have some bugs and inaccuracies.
 The original decompilation forked from the [Original Decompilation by Vindirect](https://github.com/Vindirect/WinFish/).
 This fork updates the project to be more stable and easier to compile for modern modders:
 - **Modernized Engine:** Upgraded to the Visual Studio 2022 (v143) toolset. No need to install old 2019 build tools!
-- **Bug Fixes:** * Fixed visual bugs with Breeder death animations (corrected sprite sheet offsets), game-breaking virtual tank Stack Overflow, and other bugs.
+- **Bug Fixes:** Fixed visual bugs with Breeder death animations (corrected sprite sheet offsets), game-breaking virtual tank Stack Overflow, and other bugs.
 - **Logic maintenance:** Made star potions, guppy death sound, and upgraded fish foods work as intended.
 - **Code Archaeology:** Discovered and documented unused cut content (CoinType 18 / The Peanut).
 - **Modder Support:** Added a new function for managing alien spawns more easily.
