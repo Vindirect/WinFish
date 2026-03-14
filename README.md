@@ -12,6 +12,7 @@ This fork updates the project to be more stable and easier to compile for modern
 - **Logic maintenance:** Made star potions, guppy death sound, and upgraded fish foods work as intended.
 - **Code Archaeology:** Discovered and documented unused cut content (CoinType 18 / The Peanut).
 - **Modder Support:** Added a new function for managing alien spawns more easily.
+- **Destroyed Language Barrier:** Fixed the bug where EditWidget.cpp gets corrupted in different encodings.
 - Cleaned up absolute file paths to make the project portable `$(SolutionDir)`.
 
 ### Dependencies
