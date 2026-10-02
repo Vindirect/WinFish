@@ -250,7 +250,7 @@ void Sexy::StoryScreen::Draw(Graphics* g)
 	g->FillRect(0, mHeight - 40, mWidth, 40);
 	g->SetColor(Color::White);
 	g->SetFont(FONT_CONTINUUMBOLD12);
-	SexyString aStoryPageStr = StrFormat("%d of 33", mStoryId);
+	SexyString aStoryPageStr = StrFormat("%d of 33", mStoryId + 1);
 	int aStrWdth = g->GetFont()->StringWidth(aStoryPageStr);
 	g->DrawString(aStoryPageStr, 320 - aStrWdth / 2, 28);
 }
