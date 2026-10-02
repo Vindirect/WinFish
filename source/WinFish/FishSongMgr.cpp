@@ -90,7 +90,7 @@ void Sexy::FishSongMgr::StopFishSong(int theSongId)
         FishSong* aCurSong = *it;
 
         if (aCurSong->mSongId == theSongId)
-            mSongList.erase(it);
+            it = mSongList.erase(it);
         else
             ++it;
     }
