@@ -572,17 +572,21 @@ bool Sexy::GameObject::IsHungryVisible()
 
 GameObject* Sexy::GameObject::FindNearestExoticFood(int theX, int theY)
 {
-	if (mExoticDietFoodType > 999)
-		return FindNearestExoticFoodOther(theX, theY, mExoticDietFoodType - EXO_FOOD_OBJECTS_START);
+	int aFoodTypeToEat = mExoticDietFoodType;
+	if (aFoodTypeToEat > 999)
+		return FindNearestExoticFoodOther(theX, theY, aFoodTypeToEat - EXO_FOOD_OBJECTS_START);
 
 	int aDist = 100000000;
 	Food* aRet = nullptr;
+
+	if (aFoodTypeToEat == 6)
+		aFoodTypeToEat = 0;
 
 	for (int i = 0; i < mApp->mBoard->mFoodList->size(); i++)
 	{
 		Food* aFood = mApp->mBoard->mFoodList->at(i);
 
-		if (aFood->mExoticFoodType == mExoticDietFoodType && !aFood->mPickedUp && aFood->mCantEatTimer == 0)
+		if (aFood->mExoticFoodType == aFoodTypeToEat && !aFood->mPickedUp && aFood->mCantEatTimer == 0)
 		{
 			int ax = aFood->mX - theX + 20;
 			int ay = aFood->mY - theY + 20;
