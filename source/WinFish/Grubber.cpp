@@ -81,7 +81,10 @@ void Sexy::Grubber::Update()
 	if (mXD < 10.0)
 		mXD = 10.0;
 	if (mYD > 355.0)
+	{
 		mYD = 355.0;
+		mVY = 0.0;
+	}
 	if (mBoughtTimer > 0)
 	{
 		int aVal = 5;
