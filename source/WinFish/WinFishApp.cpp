@@ -2443,6 +2443,7 @@ void Sexy::WinFishApp::SwitchToStoryScreen(int unk)
 			if (mCurrentProfile->m0x80 == 0 && mCurrentProfile->mBonusItemId > 5)
 			{
 				aStoryId = 32;
+				mCurrentProfile->m0x80 = 1;
 				SaveCurrentUserData();
 				storyFound = true;
 			}
