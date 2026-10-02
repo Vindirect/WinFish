@@ -793,7 +793,7 @@ Sexy::SimFishScreen::SimFishScreen(WinFishApp* theApp)
 	mBubbleMgr->SetBubbleConfig(10, 3);
 	mBubbleMgr->UpdateALot();
 
-	memset(mObjectButtons, 0, 20);
+	memset(mObjectButtons, 0, sizeof(mObjectButtons));
 
 	std::multimap<time_t, GameObject*> aFishMap;
 
