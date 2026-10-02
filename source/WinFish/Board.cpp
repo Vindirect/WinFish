@@ -4155,7 +4155,7 @@ void Sexy::Board::HandleBuySlotPressed(int theSlotId)
 		SpawnOscarBought();
 		if (mTank != 4)
 			MakeAndUnlockMenuButton(SLOT_WEAPON, true);
-		if (mTank == 1 && mLevel > 1)
+		if (mTank == 4 && mLevel > 1)
 		{
 			MakeAndUnlockMenuButton(SLOT_ULTRA, true);
 			MakeAndUnlockMenuButton(SLOT_WEAPON, true);
