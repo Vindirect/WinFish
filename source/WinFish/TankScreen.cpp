@@ -161,7 +161,7 @@ void Sexy::TankScreen::Draw(Graphics* g)
 			if (mApp->mGameMode == GAMEMODE_TIME_TRIAL)
 				WriteWordWrapped(g, aDrawStrRect, StrFormat("Complete Tank %d\nin Adventure Mode\nto Unlock this Tank", i + 1), -1, 0);
 			else if(mApp->mGameMode == GAMEMODE_CHALLENGE)
-				WriteWordWrapped(g, aDrawStrRect, StrFormat("Complete Tank %d\nin Challenge Mode\nto Unlock this Tank", i + 1), -1, 0);
+				WriteWordWrapped(g, aDrawStrRect, StrFormat("Complete Tank %d\nin Challenge Mode\nto Unlock this Tank", i), -1, 0);
 		}
 	}
 }
