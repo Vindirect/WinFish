@@ -619,16 +619,16 @@ void Sexy::BonusScreen::Init()
 	{
 		switch (mApp->mBoard->mTank)
 		{
-		case 0:
+		case 1:
 			mBonusReward = 2000;
 			break;
-		case 1:
+		case 2:
 			mBonusReward = 5000;
 			break;
-		case 2:
+		case 3:
 			mBonusReward = 10000;
 			break;
-		case 3:
+		case 4:
 			mBonusReward = 20000;
 			break;
 		}
