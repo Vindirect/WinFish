@@ -173,12 +173,12 @@ void Sexy::SylvesterFish::DrawFish(Graphics* g, bool mirror)
 {
 	Image* anImg = IMAGE_MINISYLV;
 	int aWHSize = 80;
-	Rect aSrcRect(mAnimationFrameIndexFish * aWHSize, aWHSize * (mTurnAnimationTimer != 0), aWHSize, aWHSize);
 	if (mSize == SIZE_LARGE)
 	{
 		anImg = IMAGE_SYLV;
 		aWHSize = 160;
 	}
+	Rect aSrcRect(mAnimationFrameIndexFish* aWHSize, aWHSize* (mTurnAnimationTimer != 0), aWHSize, aWHSize);
 	if(mInvisible && mGrowthAnimationTimer == 0)
 		if (DrawInvisibleEffect(g, anImg, aSrcRect, mirror))
 			return;
@@ -198,7 +198,7 @@ void Sexy::SylvesterFish::DrawFish(Graphics* g, bool mirror)
 
 		Rect aDestRect(0, 0, 0, 0);
 		aDestRect.mX = -aVal;
-		aDestRect.mY = aDestRect.mY;
+		aDestRect.mY = -aVal;
 		aDestRect.mWidth = aVal * 2 + 160;
 		aDestRect.mHeight = aDestRect.mWidth;
 
