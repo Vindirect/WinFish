@@ -27,6 +27,8 @@ Sexy::PetsScreen::PetsScreen(WinFishApp* theApp)
 	m0x12c = -1;
 	m0x120 = 0;
 
+	memset(m0x100, 0, sizeof(m0x100));
+
 	mReturnButton = MakeDialogButton2(99, this, "Click Here To Continue", IMAGE_MAINBUTTON);
 
 	if (theApp->mGameMode == GAMEMODE_VIRTUAL_TANK)
