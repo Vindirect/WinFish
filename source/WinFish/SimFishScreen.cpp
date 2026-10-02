@@ -975,7 +975,7 @@ void Sexy::SimFishScreen::DrawOverlay(Graphics* g)
 			{
 				SexyString aBaseName = anObj->mName.substr(0, anObj->mName.length() - 4);
 				WriteCenteredLine(g, 80, anObj->mName);
-				WriteCenteredLine(g, 80, "JR.");
+				WriteCenteredLine(g, 100, "JR.");
 			}
 		}
 
