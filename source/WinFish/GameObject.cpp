@@ -693,7 +693,7 @@ void Sexy::GameObject::UpdateHungerStateIfWasHungry(bool wasHungry)
 
 bool Sexy::GameObject::DrawInvisibleEffect(Graphics* g, Image* theImage, Rect& theSrcRect, bool mirror)
 {
-	if (mApp->mBoard->mCurrentBackgroundId - 1 < 6)
+	if ((unsigned)(mApp->mBoard->mCurrentBackgroundId - 1) < 6)
 	{
 		Image* anImg = GetImageById(mApp->mBoard->mCurrentBackgroundId + IMAGE_MISSILE_ID);
 		DrawInvisibleEffectHelper(g, (MemoryImage*) anImg, mX - 2, mY - 2, (MemoryImage*) theImage, theSrcRect, mirror);
@@ -738,12 +738,12 @@ void Sexy::GameObject::DrawInvisibleEffectHelper(Graphics* g, MemoryImage* theBG
 			{
 				if (aCnt2 >= 0 && aCnt2 < theBGImage->mWidth)
 				{
-					ulong anBitAlpha = *anObjBitForEffect & 0xFF000000;
+					ulong aBitAlpha = *anObjBitForEffect & 0xFF000000;
 					anObjBitForEffect++;
-					if (anBitAlpha != 0)
+					if (aBitAlpha != 0)
 					{
-						anBitAlpha = *aBGBitForEffect;
-						*anInvisBitForEffect = anBitAlpha;
+						aBitAlpha = *aBGBitForEffect;
+						*anInvisBitForEffect = aBitAlpha;
 					}
 					anInvisBitForEffect++;
 					aBGBitForEffect++;
@@ -759,12 +759,12 @@ void Sexy::GameObject::DrawInvisibleEffectHelper(Graphics* g, MemoryImage* theBG
 			{
 				if (aCnt2 >= 0 && aCnt2 < theBGImage->mWidth)
 				{
-					ulong anBitAlpha = *anObjBitForEffect & 0xFF000000;
+					ulong aBitAlpha = *anObjBitForEffect & 0xFF000000;
 					anObjBitForEffect--;
-					if (anBitAlpha != 0)
+					if (aBitAlpha != 0)
 					{
-						anBitAlpha = *aBGBitForEffect;
-						*anInvisBitForEffect = anBitAlpha;
+						aBitAlpha = *aBGBitForEffect;
+						*anInvisBitForEffect = aBitAlpha;
 					}
 					anInvisBitForEffect++;
 					aBGBitForEffect++;
