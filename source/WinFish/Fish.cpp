@@ -633,7 +633,7 @@ int Sexy::Fish::SpecialReturnValue()
 
 int Sexy::Fish::GetShellPrice()
 {
-    int aVal = GetShellPrice();
+    int aVal = GameObject::GetShellPrice();
     if (mVirtualFish)
     {
         if (aVal < 0)
