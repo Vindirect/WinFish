@@ -249,7 +249,7 @@ void Sexy::DeadFish::Draw(Graphics* g)
 	}
 	else if (mObjType >= TYPE_BREEDER && mObjType <= TYPE_BIG_BREEDER)
 	{
-		theSrcRect = Rect(m0x18c * 80, (mObjType - TYPE_BREEDER) * 240, 80, 80);
+		theSrcRect = Rect(m0x18c * 80, mObjType * 240 - 2240, 80, 80);
 		aDrawImage = IMAGE_HUNGRYBREEDER;
 	}
 	if(aDrawImage)
