@@ -765,7 +765,7 @@ void Sexy::Fish::OnFoodAte(GameObject* obj)
             else // 156
             {
                 mHunger += 1100;
-                if (aFood->mFoodType == 2)
+                if (mSize == SIZE_LARGE)
                 {
                     if (mHunger > 1400)
                         mHunger = 1400;
