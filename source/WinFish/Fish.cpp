@@ -639,7 +639,7 @@ int Sexy::Fish::GetShellPrice()
         if (aVal < 0)
             aVal = mShellPrice / 2;
 
-        if (aVal > 0)
+        if (mIsGuppy && aVal > 0)
         {
             if (mSize == TYPE_MEDIUM_GUPPY)
                 aVal *= 2;
