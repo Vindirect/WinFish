@@ -177,14 +177,14 @@ void Sexy::HighScoreMgr::MakeDefaultHighScores()
     }
 }
 
-SexyString Sexy::HighScoreMgr::GetPerLevelUserName(int theTank, int theLevel)
+HighScoreEntry* Sexy::HighScoreMgr::GetPerLevelEntry(int theTank, int theLevel)
 {
-    static SexyString sEmptyString;
     HighScoreList* aList = GetPerLevelScoresList(theTank, theLevel);
-    if (aList == nullptr || aList->empty())
-        return sEmptyString;
 
-    return aList->front().mUserName;
+    if (aList->empty())
+        return nullptr;
+
+    return &aList->front();
 }
 
 HighScoreList* Sexy::HighScoreMgr::GetPerLevelScoresList(int theTank, int theLevel)

@@ -41,7 +41,7 @@ namespace Sexy
 		void					ClearAllScoreLists();
 		void					MakeDefaultHighScores();
 
-		SexyString				GetPerLevelUserName(int theTank, int theLevel);
+		HighScoreEntry*			GetPerLevelEntry(int theTank, int theLevel);
 		HighScoreList*			GetPerLevelScoresList(int theTank, int theLevel);
 
 		void					RecordAdventureHighScore(int theTank, int theLevel, UserProfile* theUser, int theScore);

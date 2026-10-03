@@ -204,7 +204,7 @@ void Sexy::HighScoreScreen::DrawGameModePage(Graphics* g)
 			SexyString aStr = "n";
 
 			HighScoreList::iterator it;
-
+			HighScoreEntry* anAdvEntry = nullptr;
 			if (aCurList->size() >= aLevel)
 			{
 				it = aCurList->begin();
@@ -218,15 +218,20 @@ void Sexy::HighScoreScreen::DrawGameModePage(Graphics* g)
 			}
 			else
 			{
-				aStr = aMgr->GetPerLevelUserName(aTank, aLevel);
+				anAdvEntry = aMgr->GetPerLevelEntry(aTank, aLevel);
+				aStr = anAdvEntry->mUserName;
 				g->DrawString(StrFormat("%d-%d", aTank, aLevel), aTankStrXOffset - 30, aTextY);
 			}
 
 			g->DrawString(aStr, aTankStrXOffset, aTextY);
 
+			int score = it->mScore;
+			if (anAdvEntry != nullptr)
+				score = anAdvEntry->mScore;
+
 			aStr = "s";
 			if (mPage != PAGE_TIME && aCurList->size() >= aLevel)
-				aStr = GetPlayTimeString(it->mScore);
+				aStr = GetPlayTimeString(score);
 			else if (aCurList->size() >= aLevel)
 				aStr = StrFormat("%d", it->mScore);
 
