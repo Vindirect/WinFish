@@ -1276,7 +1276,7 @@ void Board::Draw(Graphics* g)
 				}
 			}
 		}
-		else if (mIsBonusRound)
+		if (mIsBonusRound)
 			DrawBonusRound(g);
 	} // 276
 
