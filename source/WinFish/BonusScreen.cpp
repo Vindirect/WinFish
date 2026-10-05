@@ -177,7 +177,7 @@ void Sexy::BonusScreen::Update()
 				aDisplayVal = mBonusReward - m0xc0;
 			m0xc4 += aDisplayVal;
 			m0xc0 += aDisplayVal;
-			if (mApp->mCurrentProfile->mShells > m0xc4)
+			if (m0xc4 > mApp->mCurrentProfile->mShells)
 				m0xc4 = mApp->mCurrentProfile->mShells;
 		}
 	}
