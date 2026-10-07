@@ -742,7 +742,7 @@ bool Sexy::OtherTypePet::ChaseEntity()
 		else if (mOtherTypePetType == PET_RUFUS)
 		{
 			double aCenterX = mXD + 40.0;
-			double aX = anEntity->mX + 40 + anEntity->mType != TYPE_BILATERUS ? 40 : 0;
+			double aX = anEntity->mX + 40 + (anEntity->mType != TYPE_BILATERUS ? 40 : 0);
 			if (aCenterX > aX)
 			{
 				if (mVX > -5.0)
