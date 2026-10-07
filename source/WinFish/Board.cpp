@@ -5450,7 +5450,7 @@ void Sexy::Board::SpawnAlien(int theType, int theX, int theY, bool unk)
 		else if(theType == ALIEN_CYRAX)
 			mApp->PlaySample(SOUND_EVILLAFF);
 		else if(theType == ALIEN_WEAK_SYLV || theType == ALIEN_STRONG_SYLV || theType == ALIEN_BALROG)
-			mApp->PlaySample(SOUND_ROAR3);
+			mApp->PlaySample(SOUND_ROAR);
 	}
 	return;
 }
