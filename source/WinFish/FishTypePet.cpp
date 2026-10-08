@@ -306,7 +306,7 @@ void Sexy::FishTypePet::Update()
 					if (mXD > 250.0)
 					{
 						mXDirection = -1;
-						mVX -= mVXAbs; // Maybe Incorrect TODO
+						mVX -= 2.0;
 					}
 				}
 				else if (mXDirection == -1)
@@ -320,7 +320,7 @@ void Sexy::FishTypePet::Update()
 					if (mXD < 175.0)
 					{
 						mXDirection = 1;
-						mVX += mVXAbs; // Maybe Incorrect TODO
+						mVX += 2.0;
 					}
 				}
 			}
@@ -360,13 +360,13 @@ void Sexy::FishTypePet::Update()
 
 	if (mFishTypePetType != PET_AMP)
 	{
-		if (mFishTypePetType == 0.0)
+		if (mVX == 0.0)
 			mYD += 1.0 / mSpeedMod;
-		if (mFishTypePetType == 1.0)
+		if (mVX == 1.0)
 			mYD += 0.75 / mSpeedMod;
-		if (mFishTypePetType == 2.0)
+		if (mVX == 2.0)
 			mYD += 0.5 / mSpeedMod;
-		if (mFishTypePetType == 3.0)
+		if (mVX == 3.0)
 			mYD += 0.25 / mSpeedMod;
 	}
 	else
@@ -416,7 +416,7 @@ void Sexy::FishTypePet::Update()
 
 	if (mXMax - 5 < mXD && mVX > 0.1)
 		mVX -= 0.1;
-	if (mXD < 15.0 && mVX < -1.0)
+	if (mXD < 15.0 && mVX < -0.1)
 		mVX += 0.1;
 
 	FishUpdateAnimation();
